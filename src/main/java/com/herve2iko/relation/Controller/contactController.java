@@ -20,5 +20,11 @@ public class contactController {
     public List <UserContact> getContact(){
         return contactRepository.findAll();
     }
+    @GetMapping("/update/")
+    public List <UserContact> updateContact(){
+
+
+        return null;
+    }
     
 }
