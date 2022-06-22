@@ -18,8 +18,7 @@ public class UserContact {
     private Integer id;
     private Integer phone;
 
-    @OneToOne
-    @JoinColumn(name = "id",referencedColumnName = "id")
+    @OneToOne()
     private User user;
 
     
