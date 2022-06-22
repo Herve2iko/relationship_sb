@@ -5,8 +5,13 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
 
 @Entity
+@Table(name = "tb_user")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -14,16 +19,16 @@ public class User {
     private Integer id;
     @Column(name = "name")
     private String name;
-    private Integer salary;
-    private String teamName;
+
+    @OneToOne(mappedBy = "user")
+    @JoinColumn(name = "user_id",referencedColumnName = "id")
+    private UserContact userContact;
     
     public User() {
     }
 
-    public User(String name, Integer salary, String teamName) {
+    public User(String name) {
         this.name = name;
-        this.salary = salary;
-        this.teamName = teamName;
     }
 
     public String getName() {
@@ -34,21 +39,6 @@ public class User {
         this.name = name;
     }
 
-    public Integer getSalary() {
-        return salary;
-    }
-
-    public void setSalary(Integer salary) {
-        this.salary = salary;
-    }
-
-    public String getTeamName() {
-        return teamName;
-    }
-
-    public void setTeamName(String teamName) {
-        this.teamName = teamName;
-    }
     
     
 }
