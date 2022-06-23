@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.herve2iko.relation.Entity.Client;
 import com.herve2iko.relation.Repository.ClientRepository;
-import com.herve2iko.relation.dto.detailData;
+import com.herve2iko.relation.RequestClass.detailData;
 
 @RestController
 public class ClientController {
