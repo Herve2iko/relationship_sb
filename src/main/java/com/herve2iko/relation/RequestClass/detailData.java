@@ -1,4 +1,4 @@
-package com.herve2iko.relation.dto;
+package com.herve2iko.relation.RequestClass;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
