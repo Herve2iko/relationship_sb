@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.herve2iko.relation.Entity.Employer;
 import com.herve2iko.relation.Entity.Genre;
+import com.herve2iko.relation.Repository.AgenceREpository;
 import com.herve2iko.relation.Repository.DepartementRepository;
 import com.herve2iko.relation.Repository.EmployerRepository;
 import com.herve2iko.relation.RequestClass.EmployRequest;
@@ -23,10 +24,17 @@ public class EmployerService {
     private final EmployerRepository employerRepository;
 
     @Autowired
+    private final AgenceREpository agenceREpository;
+
+    @Autowired
     private final DepartementRepository departementRepository;
 
     public List<Employer>allEmployer(){
         return employerRepository.findAll();
+    }
+
+    public List<Employer> getEmployerDepartement(String nom) {
+        return employerRepository.getByDepartementName(nom);
     }
     
     public Employer getOneEmployer(Long id) {
@@ -55,11 +63,9 @@ public class EmployerService {
             employer.setGenre(Genre.FEMININ);
         }
         employer.setDepartement(departementRepository.findById(request.getDepartement()).get());
+        employer.setAgence(agenceREpository.findById(request.getAgence()).get());
         Employer empl = employerRepository.save(employer);
-
-        System.out.println("created employer");
         System.out.println(empl);
-        System.out.println("created employer");
         return request;
     }
     public Employer updateEmployer(Long id,Employer employer){

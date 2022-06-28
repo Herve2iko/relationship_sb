@@ -12,5 +12,6 @@ public class EmployRequest {
     private String nom;
     private String genre;
     private Long departement;
+    private int agence;
 
 }
