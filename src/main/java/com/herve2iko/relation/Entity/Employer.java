@@ -22,29 +22,30 @@ public class Employer {
     @ManyToOne
     @JoinColumn(name = "depart_id")
     private Departement departement;
-
-    
+    @ManyToOne
+    @JoinColumn(name = "agence_id")
+    private Agence agence;    
 
     public Employer() {
     }
 
-
-
-    public Employer(String nom, Genre genre, Departement departement) {
-        this.nom = nom;
-        this.genre = genre;
-        this.departement = departement;
-    }
-
-
-
-    public Employer(Long id, String nom,Genre genre, Departement departement) {
+    public Employer(Long id, String nom, Genre genre, Departement departement, Agence agence) {
         this.id = id;
         this.nom = nom;
         this.genre = genre;
         this.departement = departement;
+        this.agence = agence;
     }
 
+    public Employer(String nom, Genre genre, Departement departement, Agence agence) {
+        this.nom = nom;
+        this.genre = genre;
+        this.departement = departement;
+        this.agence = agence;
+    }
 
+    
+
+    
     
 }
