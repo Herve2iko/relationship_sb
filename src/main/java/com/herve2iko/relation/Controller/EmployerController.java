@@ -29,6 +29,11 @@ public class EmployerController {
     public Employer oneEmployer(@PathVariable Long id){
         return employerService.getOneEmployer(id);
     }
+    @GetMapping("/departement/{nom}")
+    public List <Employer> DepartementEmployer(@PathVariable String nom){
+        return employerService.getEmployerDepartement(nom);
+    }
+
     @DeleteMapping("/{id}")
     public void deleteEmployer(@PathVariable Long id){
         employerService.deleteEmployer(id);
