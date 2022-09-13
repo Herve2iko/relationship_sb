@@ -10,7 +10,7 @@ public class Agence {
     @GeneratedValue
     private int id;
     private String nom;
-   
+
     public Agence() {
     }
 
